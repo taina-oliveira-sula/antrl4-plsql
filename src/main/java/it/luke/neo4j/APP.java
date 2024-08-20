@@ -1,109 +1,110 @@
 package it.luke.neo4j;
 
+import org.neo4j.driver.AuthTokens;
+import org.neo4j.driver.Driver;
+import org.neo4j.driver.GraphDatabase;
+import org.neo4j.driver.Session;
+import org.neo4j.driver.Result;
+import org.neo4j.driver.Transaction;
 import it.luke.plsql.pojo.TableInfo;
-import org.neo4j.driver.v1.*;
+
+import static org.neo4j.driver.Values.parameters;
 
 import java.util.ArrayList;
 
-import static org.neo4j.driver.v1.Values.parameters;
-
-/**
- * @author luke
- * @date 2021/1/2418:50
- */
-
 public class APP {
-    //    初始化驱动器
-    static Driver driver = null;
-    //    初始化执行语句对象
-    static StringBuilder sb = new StringBuilder();
-    //    初始化
-    static StringBuilder relationsb =new StringBuilder();
+
+    // Defina o driver como uma variável de instância da classe APP
+    private static Driver driver;
 
     public static void main(String[] args) {
-        //测试
-        Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "admin"));
-        Session session = driver.session();
-        session.run("CREATE (a:Person {name: {name}, title: {title}})",
-                parameters("name", "Arthur001", "title", "King001"));
+        // Inicialize o driver na variável de instância
+        driver = GraphDatabase.driver("neo4j+s://c0c45999.databases.neo4j.io", AuthTokens.basic("neo4j", "_4BjkgBqwFY1rd1ytzJdmaSaG_T4R9EltlCgaAHfIII"));
 
-        StatementResult result = session.run("MATCH (a:Person) WHERE a.name = {name} " +
-                        "RETURN a.name AS name, a.title AS title",
-                parameters("name", "Arthur001"));
-        while (result.hasNext()) {
-            Record record = result.next();
-            System.out.println(record.get("title").asString() + " " + record.get("name").asString());
+        // Iniciar uma sessão
+        try (Session session = driver.session()) {
+
+            // Executar uma transação
+            try (Transaction tx = session.beginTransaction()) {
+                Result result = tx.run("CREATE (a:Person {name: $name, title: $title}) RETURN a.name AS name, a.title AS title",
+                    parameters("name", "Tai", "title", "Developer"));
+
+                // Iterar sobre os resultados
+                while (result.hasNext()) {
+                    System.out.println(result.next().get("name").asString());
+                }
+
+                // Confirmar a transação
+                tx.commit();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // Fechar o driver
+            driver.close();
         }
-        session.close();
-        driver.close();
     }
 
-    /**
-     * 获取连接会话
-     * @return
-     */
-    static public Session getConnect() {
-        driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "admin"));
-        Session session = driver.session();
-        return session;
-    }
-
-
-    /**
-     * 解析对象生成执行语句,通过调用api接口的形式在neo4j生成对应的节点和关系
-     * @param tableInfo
-     */
     public static void addDepGraphWithObj(TableInfo tableInfo) {
-
         Session session = getConnect();
-        //默认主节点(目标表)
-        String defaultLable = "tables";//默认节点
+        // Definir o nó principal (tabela de destino)
+        String defaultLabel = "tables"; // Nó padrão
         String tableName = tableInfo.getTableName();
-        //拼接Cypher语句
-        //初始化主节点
-        sb.append("CREATE (" + tableName + ":" + defaultLable + " {comment:'"+tableName+"', status:'live'})");
-        sb.append("\n");
-        //初始化与主节点的建立关系语句
+        StringBuilder sb = new StringBuilder();
+
+        // Inicializar a criação do nó principal
+        sb.append("CREATE (" + tableName + ":" + defaultLabel + " {comment:'" + tableName + "', status:'live'})\n");
+
+        // Inicializar a criação da relação com o nó principal
         String recyp = "-[:join]->(" + tableName + "),\n";
-        relationsb = new StringBuilder();
+        StringBuilder relationsb = new StringBuilder();
         relationsb.append("CREATE\n");
+
         ArrayList<TableInfo> joinClaus = tableInfo.getJoinClaus();
-        //判断该执行关系是否有关联关系
+        // Verificar se há relações de associação
         if (joinClaus.size() > 0) {
             relationsb = relation_main_dep(recyp, relationsb, joinClaus);
-            String substring = relationsb.substring(0, relationsb.toString().length() - 2);
+            String substring = relationsb.substring(0, relationsb.length() - 2);
             sb.append(substring);
         }
-        //执行语句
+
+        // Executar a declaração Cypher
         session.run(sb.toString());
-//        System.out.println(substring);
-        //关闭资源
+
+        // Fechar recursos
         session.close();
-        driver.close();
+        driver.close(); // Aqui a variável driver agora está acessível
+    }
+
+    // Método auxiliar para conectar ao Neo4j (certifique-se de implementar ou ajustar conforme necessário)
+    private static Session getConnect() {
+        driver = GraphDatabase.driver("neo4j+s://c0c45999.databases.neo4j.io", AuthTokens.basic("neo4j", "_4BjkgBqwFY1rd1ytzJdmaSaG_T4R9EltlCgaAHfIII"));
+        return driver.session();
     }
 
     /**
-     * 解析对象并构建有关联关系的Cypher语句
+     * Analisar o objeto e construir a declaração Cypher com relações associadas
      * @param recyp
      * @param relationsb
      * @param joinClaus
      * @return
      */
-    public static StringBuilder relation_main_dep(String recyp, StringBuilder relationsb,  ArrayList<TableInfo> joinClaus) {
-        String defaultLable = "tables";
+    public static StringBuilder relation_main_dep(String recyp, StringBuilder relationsb, ArrayList<TableInfo> joinClaus) {
+        String defaultLabel = "tables";
         if (joinClaus.size() == 0) {
             return relationsb;
         }
         for (TableInfo tableInfo : joinClaus) {
             String tableName = tableInfo.getTableName();
-            sb.append("CREATE (" + tableName + ":" + defaultLable + " {comment:'table:" + tableName + "', status:'live'})\n");
+            relationsb.append("CREATE (" + tableName + ":" + defaultLabel + " {comment:'table:" + tableName + "', status:'live'})\n");
+
             if (tableInfo.getJoinClaus().size() == 0) {
                 relationsb.append("(" + tableName + ")" + recyp);
-            }
-            if (tableInfo.getJoinClaus().size() != 0) {
-                relationsb.append("(" + tableName + ")" + recyp);//自己添加依赖后,其余的也要添加依赖
-                String recyp_sub = "-[:join]->(" + tableName + "),\n";
-                relation_main_dep(recyp_sub, relationsb, tableInfo.getJoinClaus());
+            } else {
+                relationsb.append("(" + tableName + ")" + recyp);
+                String recypSub = "-[:join]->(" + tableName + "),\n";
+                relation_main_dep(recypSub, relationsb, tableInfo.getJoinClaus());
             }
         }
         return relationsb;

@@ -8,59 +8,89 @@
     <artifactId>Antrl4_Plsql</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <antlr.version>4.13.0</antlr.version>
+        <neo4j.driver.version>5.9.0</neo4j.driver.version>
+        <neo4j.version>5.9.0</neo4j.version>
+        <junit.version>5.9.2</junit.version>
+    </properties>
+
     <dependencies>
-        <!--图数据库 连接驱动 neo4j-->
+        <!-- Conector do banco de dados gráfico Neo4j Driver -->
         <dependency>
-            <!-- 服务器开发需要的jar包 -->
             <groupId>org.neo4j.driver</groupId>
             <artifactId>neo4j-java-driver</artifactId>
-            <version>1.5.0</version>
+            <version>${neo4j.driver.version}</version>
         </dependency>
+
+        <!-- Biblioteca Neo4j para desenvolvimento embutido -->
         <dependency>
-            <!-- 嵌入式开发需要的jar包 -->
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j</artifactId>
-            <version>3.3.4</version>
+            <version>${neo4j.version}</version>
         </dependency>
+
+        <!-- ANTLR4 Runtime -->
         <dependency>
             <groupId>org.antlr</groupId>
             <artifactId>antlr4-runtime</artifactId>
-            <version>4.5.3</version>
+            <version>${antlr.version}</version>
         </dependency>
+
+        <!-- JUnit 5 para testes -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>compile</scope>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
+            <!-- Plugin ANTLR4 -->
             <plugin>
                 <groupId>org.antlr</groupId>
                 <artifactId>antlr4-maven-plugin</artifactId>
+                <version>${antlr.version}</version>
                 <executions>
                     <execution>
-                        <id>antlr</id>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>antlr4</goal>
                         </goals>
-                        <phase>none</phase>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/generated-sources/antlr4</outputDirectory>
+                            <arguments>
+                                <argument>-visitor</argument>
+                                <argument>-listener</argument>
+                            </arguments>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <outputDirectory>src/test/java</outputDirectory>
-                    <listener>true</listener>
-                    <treatWarningsAsErrors>true</treatWarningsAsErrors>
-                </configuration>
             </plugin>
+
+            <!-- Plugin do compilador Maven -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
                 <configuration>
-                    <source>6</source>
-                    <target>6</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <generatedSourcesDirectory>${project.build.directory}/generated-sources/antlr4</generatedSourcesDirectory>
                 </configuration>
+            </plugin>
+
+            <!-- Plugin Surefire para executar testes -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
             </plugin>
         </plugins>
     </build>
