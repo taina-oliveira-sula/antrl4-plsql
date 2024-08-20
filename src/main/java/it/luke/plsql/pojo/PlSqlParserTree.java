@@ -2,7 +2,7 @@ package it.luke.plsql.pojo;
 
 import it.luke.antlr.generated.PlSqlLexer;
 import it.luke.antlr.generated.PlSqlParser;
-import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.TokenStreamRewriter;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -12,14 +12,18 @@ import org.antlr.v4.runtime.tree.ParseTree;
  */
 public class PlSqlParserTree {
 
-    private ANTLRInputStream input;
+    private CharStream input;
     private PlSqlLexer lexer;
     private CommonTokenStream tokens;
     private PlSqlParser parser;
     private TokenStreamRewriter rewriter;
     private ParseTree parseTree;
 
-    public ANTLRInputStream getInput() {
+    public CharStream getInput(CharStream input) {
+        return input;
+    }
+
+    public CharStream getInput() {
         return input;
     }
 
@@ -31,22 +35,22 @@ public class PlSqlParserTree {
         return parseTree;
     }
 
-    public PlSqlParserTree(ANTLRInputStream input) {
-        this.input = input;//传入输入流
-        parseInput();//进行初始化
+    public PlSqlParserTree(CharStream input) {
+        this.input = input; // Agora usando CharStream
+        parseInput(); // Realizando a inicialização
     }
 
-    // 初始化
+    // Inicialização
     private ParseTree parseInput() {
-        //新建词法分析器
+        // Criando o lexer
         lexer = new PlSqlLexer(input);
         lexer.removeErrorListeners();
-        //根据词法分析构建记号流
+        // Construindo o fluxo de tokens a partir do lexer
         tokens = new CommonTokenStream(lexer);
-        //解析 后生成解析树
+        // Criando o parser
         parser = new PlSqlParser(tokens);
         rewriter = new TokenStreamRewriter(tokens);
-        //compilation_unit 是其中一个主节点 在g4文件可以找到
+        // Gerando a árvore de análise a partir do parser
         parseTree = parser.compilation_unit();
 
         return parseTree;

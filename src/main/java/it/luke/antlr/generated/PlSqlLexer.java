@@ -1,18 +1,2599 @@
+// SPDX-License-Identifier: Apache-2.0
+
 // Generated from ./grammar/PlSql.g4 by ANTLR 4.5.3
 
 package it.luke.antlr.generated;
 
-import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenStream;
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.atn.*;
+import org.antlr.v4.runtime.Lexer;
+import org.antlr.v4.runtime.RuntimeMetaData;
+import org.antlr.v4.runtime.Vocabulary;
+import org.antlr.v4.runtime.VocabularyImpl;
+import org.antlr.v4.runtime.atn.ATN;
+import org.antlr.v4.runtime.atn.ATNDeserializer;
+import org.antlr.v4.runtime.atn.LexerATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.misc.*;
+import org.antlr.v4.runtime.misc.Utils;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class PlSqlLexer extends Lexer {
+	public static DFA[] getDecisiontodfa() {
+		return _decisionToDFA;
+	}
+
+	public static PredictionContextCache getSharedcontextcache() {
+		return _sharedContextCache;
+	}
+
+	public static int getT0() {
+		return T__0;
+	}
+
+	public static int getPpIf() {
+		return PP_IF;
+	}
+
+	public static int getPpThen() {
+		return PP_THEN;
+	}
+
+	public static int getPpElse() {
+		return PP_ELSE;
+	}
+
+	public static int getPpElsif() {
+		return PP_ELSIF;
+	}
+
+	public static int getPpEnd() {
+		return PP_END;
+	}
+
+	public static int getPpError() {
+		return PP_ERROR;
+	}
+
+	public static int getaLetter() {
+		return A_LETTER;
+	}
+
+	public static int getAdd() {
+		return ADD;
+	}
+
+	public static int getAfter() {
+		return AFTER;
+	}
+
+	public static int getAgent() {
+		return AGENT;
+	}
+
+	public static int getAggregate() {
+		return AGGREGATE;
+	}
+
+	public static int getAll() {
+		return ALL;
+	}
+
+	public static int getAlter() {
+		return ALTER;
+	}
+
+	public static int getAnalyze() {
+		return ANALYZE;
+	}
+
+	public static int getAnd() {
+		return AND;
+	}
+
+	public static int getAny() {
+		return ANY;
+	}
+
+	public static int getArray() {
+		return ARRAY;
+	}
+
+	public static int getAs() {
+		return AS;
+	}
+
+	public static int getAsc() {
+		return ASC;
+	}
+
+	public static int getAssociate() {
+		return ASSOCIATE;
+	}
+
+	public static int getAssociationOperator() {
+		return ASSOCIATION_OPERATOR;
+	}
+
+	public static int getAt() {
+		return AT;
+	}
+
+	public static int getAttribute() {
+		return ATTRIBUTE;
+	}
+
+	public static int getAudit() {
+		return AUDIT;
+	}
+
+	public static int getAuthid() {
+		return AUTHID;
+	}
+
+	public static int getAuto() {
+		return AUTO;
+	}
+
+	public static int getAutomatic() {
+		return AUTOMATIC;
+	}
+
+	public static int getAutonomousTransaction() {
+		return AUTONOMOUS_TRANSACTION;
+	}
+
+	public static int getBatch() {
+		return BATCH;
+	}
+
+	public static int getBefore() {
+		return BEFORE;
+	}
+
+	public static int getBegin() {
+		return BEGIN;
+	}
+
+	public static int getBetween() {
+		return BETWEEN;
+	}
+
+	public static int getBfile() {
+		return BFILE;
+	}
+
+	public static int getBinaryDouble() {
+		return BINARY_DOUBLE;
+	}
+
+	public static int getBinaryFloat() {
+		return BINARY_FLOAT;
+	}
+
+	public static int getBinaryInteger() {
+		return BINARY_INTEGER;
+	}
+
+	public static int getBlob() {
+		return BLOB;
+	}
+
+	public static int getBlock() {
+		return BLOCK;
+	}
+
+	public static int getBody() {
+		return BODY;
+	}
+
+	public static int getBoolean() {
+		return BOOLEAN;
+	}
+
+	public static int getBoth() {
+		return BOTH;
+	}
+
+	public static int getBreadth() {
+		return BREADTH;
+	}
+
+	public static int getBulk() {
+		return BULK;
+	}
+
+	public static int getBy() {
+		return BY;
+	}
+
+	public static int getByte() {
+		return BYTE;
+	}
+
+	public static int getcLetter() {
+		return C_LETTER;
+	}
+
+	public static int getCache() {
+		return CACHE;
+	}
+
+	public static int getCall() {
+		return CALL;
+	}
+
+	public static int getCanonical() {
+		return CANONICAL;
+	}
+
+	public static int getCascade() {
+		return CASCADE;
+	}
+
+	public static int getCase() {
+		return CASE;
+	}
+
+	public static int getCast() {
+		return CAST;
+	}
+
+	public static int getChar() {
+		return CHAR;
+	}
+
+	public static int getCharCs() {
+		return CHAR_CS;
+	}
+
+	public static int getCharacter() {
+		return CHARACTER;
+	}
+
+	public static int getCheck() {
+		return CHECK;
+	}
+
+	public static int getChr() {
+		return CHR;
+	}
+
+	public static int getClob() {
+		return CLOB;
+	}
+
+	public static int getClose() {
+		return CLOSE;
+	}
+
+	public static int getCluster() {
+		return CLUSTER;
+	}
+
+	public static int getCollect() {
+		return COLLECT;
+	}
+
+	public static int getColumns() {
+		return COLUMNS;
+	}
+
+	public static int getComment() {
+		return COMMENT;
+	}
+
+	public static int getCommit() {
+		return COMMIT;
+	}
+
+	public static int getCommitted() {
+		return COMMITTED;
+	}
+
+	public static int getCompatibility() {
+		return COMPATIBILITY;
+	}
+
+	public static int getCompile() {
+		return COMPILE;
+	}
+
+	public static int getCompound() {
+		return COMPOUND;
+	}
+
+	public static int getConnect() {
+		return CONNECT;
+	}
+
+	public static int getConnectByRoot() {
+		return CONNECT_BY_ROOT;
+	}
+
+	public static int getConstant() {
+		return CONSTANT;
+	}
+
+	public static int getConstraint() {
+		return CONSTRAINT;
+	}
+
+	public static int getConstraints() {
+		return CONSTRAINTS;
+	}
+
+	public static int getConstructor() {
+		return CONSTRUCTOR;
+	}
+
+	public static int getContent() {
+		return CONTENT;
+	}
+
+	public static int getContext() {
+		return CONTEXT;
+	}
+
+	public static int getContinue() {
+		return CONTINUE;
+	}
+
+	public static int getConvert() {
+		return CONVERT;
+	}
+
+	public static int getCorruptXid() {
+		return CORRUPT_XID;
+	}
+
+	public static int getCorruptXidAll() {
+		return CORRUPT_XID_ALL;
+	}
+
+	public static int getCost() {
+		return COST;
+	}
+
+	public static int getCount() {
+		return COUNT;
+	}
+
+	public static int getCreate() {
+		return CREATE;
+	}
+
+	public static int getCross() {
+		return CROSS;
+	}
+
+	public static int getCube() {
+		return CUBE;
+	}
+
+	public static int getCurrent() {
+		return CURRENT;
+	}
+
+	public static int getCurrentUser() {
+		return CURRENT_USER;
+	}
+
+	public static int getCursor() {
+		return CURSOR;
+	}
+
+	public static int getCustomdatum() {
+		return CUSTOMDATUM;
+	}
+
+	public static int getCycle() {
+		return CYCLE;
+	}
+
+	public static int getData() {
+		return DATA;
+	}
+
+	public static int getDatabase() {
+		return DATABASE;
+	}
+
+	public static int getDate() {
+		return DATE;
+	}
+
+	public static int getDay() {
+		return DAY;
+	}
+
+	public static int getDbRoleChange() {
+		return DB_ROLE_CHANGE;
+	}
+
+	public static int getDbtimezone() {
+		return DBTIMEZONE;
+	}
+
+	public static int getDdl() {
+		return DDL;
+	}
+
+	public static int getDebug() {
+		return DEBUG;
+	}
+
+	public static int getDec() {
+		return DEC;
+	}
+
+	public static int getDecimal() {
+		return DECIMAL;
+	}
+
+	public static int getDeclare() {
+		return DECLARE;
+	}
+
+	public static int getDecompose() {
+		return DECOMPOSE;
+	}
+
+	public static int getDecrement() {
+		return DECREMENT;
+	}
+
+	public static int getDefault() {
+		return DEFAULT;
+	}
+
+	public static int getDefaults() {
+		return DEFAULTS;
+	}
+
+	public static int getDeferred() {
+		return DEFERRED;
+	}
+
+	public static int getDefiner() {
+		return DEFINER;
+	}
+
+	public static int getDelete() {
+		return DELETE;
+	}
+
+	public static int getDepth() {
+		return DEPTH;
+	}
+
+	public static int getDesc() {
+		return DESC;
+	}
+
+	public static int getDeterministic() {
+		return DETERMINISTIC;
+	}
+
+	public static int getDimension() {
+		return DIMENSION;
+	}
+
+	public static int getDisable() {
+		return DISABLE;
+	}
+
+	public static int getDisassociate() {
+		return DISASSOCIATE;
+	}
+
+	public static int getDistinct() {
+		return DISTINCT;
+	}
+
+	public static int getDocument() {
+		return DOCUMENT;
+	}
+
+	public static int getDouble() {
+		return DOUBLE;
+	}
+
+	public static int getDrop() {
+		return DROP;
+	}
+
+	public static int getDsintervalUnconstrained() {
+		return DSINTERVAL_UNCONSTRAINED;
+	}
+
+	public static int getEach() {
+		return EACH;
+	}
+
+	public static int getElement() {
+		return ELEMENT;
+	}
+
+	public static int getElse() {
+		return ELSE;
+	}
+
+	public static int getElsif() {
+		return ELSIF;
+	}
+
+	public static int getEmpty() {
+		return EMPTY;
+	}
+
+	public static int getEnable() {
+		return ENABLE;
+	}
+
+	public static int getEncoding() {
+		return ENCODING;
+	}
+
+	public static int getEnd() {
+		return END;
+	}
+
+	public static int getEntityescaping() {
+		return ENTITYESCAPING;
+	}
+
+	public static int getErrors() {
+		return ERRORS;
+	}
+
+	public static int getEscape() {
+		return ESCAPE;
+	}
+
+	public static int getExcept() {
+		return EXCEPT;
+	}
+
+	public static int getEvalname() {
+		return EVALNAME;
+	}
+
+	public static int getException() {
+		return EXCEPTION;
+	}
+
+	public static int getExceptionInit() {
+		return EXCEPTION_INIT;
+	}
+
+	public static int getExceptions() {
+		return EXCEPTIONS;
+	}
+
+	public static int getExclude() {
+		return EXCLUDE;
+	}
+
+	public static int getExclusive() {
+		return EXCLUSIVE;
+	}
+
+	public static int getExecute() {
+		return EXECUTE;
+	}
+
+	public static int getExists() {
+		return EXISTS;
+	}
+
+	public static int getExit() {
+		return EXIT;
+	}
+
+	public static int getExplain() {
+		return EXPLAIN;
+	}
+
+	public static int getExternal() {
+		return EXTERNAL;
+	}
+
+	public static int getExtend() {
+		return EXTEND;
+	}
+
+	public static int getExtract() {
+		return EXTRACT;
+	}
+
+	public static int getFailure() {
+		return FAILURE;
+	}
+
+	public static int getFalse() {
+		return FALSE;
+	}
+
+	public static int getFetch() {
+		return FETCH;
+	}
+
+	public static int getFinal() {
+		return FINAL;
+	}
+
+	public static int getFirst() {
+		return FIRST;
+	}
+
+	public static int getFirstValue() {
+		return FIRST_VALUE;
+	}
+
+	public static int getFloat() {
+		return FLOAT;
+	}
+
+	public static int getFollowing() {
+		return FOLLOWING;
+	}
+
+	public static int getFollows() {
+		return FOLLOWS;
+	}
+
+	public static int getFor() {
+		return FOR;
+	}
+
+	public static int getForall() {
+		return FORALL;
+	}
+
+	public static int getForce() {
+		return FORCE;
+	}
+
+	public static int getFrom() {
+		return FROM;
+	}
+
+	public static int getFull() {
+		return FULL;
+	}
+
+	public static int getFunction() {
+		return FUNCTION;
+	}
+
+	public static int getGoto() {
+		return GOTO;
+	}
+
+	public static int getGrant() {
+		return GRANT;
+	}
+
+	public static int getGroup() {
+		return GROUP;
+	}
+
+	public static int getGrouping() {
+		return GROUPING;
+	}
+
+	public static int getHash() {
+		return HASH;
+	}
+
+	public static int getHaving() {
+		return HAVING;
+	}
+
+	public static int getHide() {
+		return HIDE;
+	}
+
+	public static int getHour() {
+		return HOUR;
+	}
+
+	public static int getIf() {
+		return IF;
+	}
+
+	public static int getIgnore() {
+		return IGNORE;
+	}
+
+	public static int getImmediate() {
+		return IMMEDIATE;
+	}
+
+	public static int getIn() {
+		return IN;
+	}
+
+	public static int getInclude() {
+		return INCLUDE;
+	}
+
+	public static int getIncluding() {
+		return INCLUDING;
+	}
+
+	public static int getIncrement() {
+		return INCREMENT;
+	}
+
+	public static int getIndent() {
+		return INDENT;
+	}
+
+	public static int getIndex() {
+		return INDEX;
+	}
+
+	public static int getIndexed() {
+		return INDEXED;
+	}
+
+	public static int getIndicator() {
+		return INDICATOR;
+	}
+
+	public static int getIndices() {
+		return INDICES;
+	}
+
+	public static int getInfinite() {
+		return INFINITE;
+	}
+
+	public static int getInline() {
+		return INLINE;
+	}
+
+	public static int getInner() {
+		return INNER;
+	}
+
+	public static int getInout() {
+		return INOUT;
+	}
+
+	public static int getInsert() {
+		return INSERT;
+	}
+
+	public static int getInstantiable() {
+		return INSTANTIABLE;
+	}
+
+	public static int getInstead() {
+		return INSTEAD;
+	}
+
+	public static int getInt() {
+		return INT;
+	}
+
+	public static int getInteger() {
+		return INTEGER;
+	}
+
+	public static int getIntersect() {
+		return INTERSECT;
+	}
+
+	public static int getInterval() {
+		return INTERVAL;
+	}
+
+	public static int getInto() {
+		return INTO;
+	}
+
+	public static int getInvalidate() {
+		return INVALIDATE;
+	}
+
+	public static int getIs() {
+		return IS;
+	}
+
+	public static int getIsolation() {
+		return ISOLATION;
+	}
+
+	public static int getIterate() {
+		return ITERATE;
+	}
+
+	public static int getJava() {
+		return JAVA;
+	}
+
+	public static int getJoin() {
+		return JOIN;
+	}
+
+	public static int getKeep() {
+		return KEEP;
+	}
+
+	public static int getLanguage() {
+		return LANGUAGE;
+	}
+
+	public static int getLast() {
+		return LAST;
+	}
+
+	public static int getLastValue() {
+		return LAST_VALUE;
+	}
+
+	public static int getLeading() {
+		return LEADING;
+	}
+
+	public static int getLeft() {
+		return LEFT;
+	}
+
+	public static int getLevel() {
+		return LEVEL;
+	}
+
+	public static int getLibrary() {
+		return LIBRARY;
+	}
+
+	public static int getLike() {
+		return LIKE;
+	}
+
+	public static int getLike2() {
+		return LIKE2;
+	}
+
+	public static int getLike4() {
+		return LIKE4;
+	}
+
+	public static int getLikec() {
+		return LIKEC;
+	}
+
+	public static int getLimit() {
+		return LIMIT;
+	}
+
+	public static int getLocal() {
+		return LOCAL;
+	}
+
+	public static int getLock() {
+		return LOCK;
+	}
+
+	public static int getLocked() {
+		return LOCKED;
+	}
+
+	public static int getLog() {
+		return LOG;
+	}
+
+	public static int getLogoff() {
+		return LOGOFF;
+	}
+
+	public static int getLogon() {
+		return LOGON;
+	}
+
+	public static int getLong() {
+		return LONG;
+	}
+
+	public static int getLoop() {
+		return LOOP;
+	}
+
+	public static int getMain() {
+		return MAIN;
+	}
+
+	public static int getMap() {
+		return MAP;
+	}
+
+	public static int getMatched() {
+		return MATCHED;
+	}
+
+	public static int getMaxvalue() {
+		return MAXVALUE;
+	}
+
+	public static int getMeasures() {
+		return MEASURES;
+	}
+
+	public static int getMember() {
+		return MEMBER;
+	}
+
+	public static int getMerge() {
+		return MERGE;
+	}
+
+	public static int getMinus() {
+		return MINUS;
+	}
+
+	public static int getMinute() {
+		return MINUTE;
+	}
+
+	public static int getMinvalue() {
+		return MINVALUE;
+	}
+
+	public static int getMlslabel() {
+		return MLSLABEL;
+	}
+
+	public static int getMod() {
+		return MOD;
+	}
+
+	public static int getMode() {
+		return MODE;
+	}
+
+	public static int getModel() {
+		return MODEL;
+	}
+
+	public static int getModify() {
+		return MODIFY;
+	}
+
+	public static int getMonth() {
+		return MONTH;
+	}
+
+	public static int getMultiset() {
+		return MULTISET;
+	}
+
+	public static int getName() {
+		return NAME;
+	}
+
+	public static int getNan() {
+		return NAN;
+	}
+
+	public static int getNatural() {
+		return NATURAL;
+	}
+
+	public static int getNaturaln() {
+		return NATURALN;
+	}
+
+	public static int getNav() {
+		return NAV;
+	}
+
+	public static int getNchar() {
+		return NCHAR;
+	}
+
+	public static int getNcharCs() {
+		return NCHAR_CS;
+	}
+
+	public static int getNclob() {
+		return NCLOB;
+	}
+
+	public static int getNested() {
+		return NESTED;
+	}
+
+	public static int getNew() {
+		return NEW;
+	}
+
+	public static int getNext() {
+		return NEXT;
+	}
+
+	public static int getNo() {
+		return NO;
+	}
+
+	public static int getNoaudit() {
+		return NOAUDIT;
+	}
+
+	public static int getNocache() {
+		return NOCACHE;
+	}
+
+	public static int getNocopy() {
+		return NOCOPY;
+	}
+
+	public static int getNocycle() {
+		return NOCYCLE;
+	}
+
+	public static int getNoentityescaping() {
+		return NOENTITYESCAPING;
+	}
+
+	public static int getNomaxvalue() {
+		return NOMAXVALUE;
+	}
+
+	public static int getNominvalue() {
+		return NOMINVALUE;
+	}
+
+	public static int getNone() {
+		return NONE;
+	}
+
+	public static int getNoorder() {
+		return NOORDER;
+	}
+
+	public static int getNoschemacheck() {
+		return NOSCHEMACHECK;
+	}
+
+	public static int getNot() {
+		return NOT;
+	}
+
+	public static int getNowait() {
+		return NOWAIT;
+	}
+
+	public static int getNull() {
+		return NULL;
+	}
+
+	public static int getNulls() {
+		return NULLS;
+	}
+
+	public static int getNumber() {
+		return NUMBER;
+	}
+
+	public static int getNumeric() {
+		return NUMERIC;
+	}
+
+	public static int getNvarchar2() {
+		return NVARCHAR2;
+	}
+
+	public static int getObject() {
+		return OBJECT;
+	}
+
+	public static int getOf() {
+		return OF;
+	}
+
+	public static int getOff() {
+		return OFF;
+	}
+
+	public static int getOid() {
+		return OID;
+	}
+
+	public static int getOld() {
+		return OLD;
+	}
+
+	public static int getOn() {
+		return ON;
+	}
+
+	public static int getOnly() {
+		return ONLY;
+	}
+
+	public static int getOpen() {
+		return OPEN;
+	}
+
+	public static int getOption() {
+		return OPTION;
+	}
+
+	public static int getOr() {
+		return OR;
+	}
+
+	public static int getOradata() {
+		return ORADATA;
+	}
+
+	public static int getOrder() {
+		return ORDER;
+	}
+
+	public static int getOrdinality() {
+		return ORDINALITY;
+	}
+
+	public static int getOserror() {
+		return OSERROR;
+	}
+
+	public static int getOut() {
+		return OUT;
+	}
+
+	public static int getOuter() {
+		return OUTER;
+	}
+
+	public static int getOver() {
+		return OVER;
+	}
+
+	public static int getOverriding() {
+		return OVERRIDING;
+	}
+
+	public static int getPackage() {
+		return PACKAGE;
+	}
+
+	public static int getParallelEnable() {
+		return PARALLEL_ENABLE;
+	}
+
+	public static int getParameters() {
+		return PARAMETERS;
+	}
+
+	public static int getParent() {
+		return PARENT;
+	}
+
+	public static int getPartition() {
+		return PARTITION;
+	}
+
+	public static int getPassing() {
+		return PASSING;
+	}
+
+	public static int getPath() {
+		return PATH;
+	}
+
+	public static int getPercentIsopen() {
+		return PERCENT_ISOPEN;
+	}
+
+	public static int getPercentRowtype() {
+		return PERCENT_ROWTYPE;
+	}
+
+	public static int getPercentType() {
+		return PERCENT_TYPE;
+	}
+
+	public static int getPercentFound() {
+		return PERCENT_FOUND;
+	}
+
+	public static int getPercentNotfound() {
+		return PERCENT_NOTFOUND;
+	}
+
+	public static int getPercentRowcount() {
+		return PERCENT_ROWCOUNT;
+	}
+
+	public static int getPipelined() {
+		return PIPELINED;
+	}
+
+	public static int getPipe() {
+		return PIPE;
+	}
+
+	public static int getPivot() {
+		return PIVOT;
+	}
+
+	public static int getPlan() {
+		return PLAN;
+	}
+
+	public static int getPlsInteger() {
+		return PLS_INTEGER;
+	}
+
+	public static int getPositive() {
+		return POSITIVE;
+	}
+
+	public static int getPositiven() {
+		return POSITIVEN;
+	}
+
+	public static int getPragma() {
+		return PRAGMA;
+	}
+
+	public static int getPreceding() {
+		return PRECEDING;
+	}
+
+	public static int getPrecision() {
+		return PRECISION;
+	}
+
+	public static int getPresent() {
+		return PRESENT;
+	}
+
+	public static int getPrior() {
+		return PRIOR;
+	}
+
+	public static int getProcedure() {
+		return PROCEDURE;
+	}
+
+	public static int getRaise() {
+		return RAISE;
+	}
+
+	public static int getRange() {
+		return RANGE;
+	}
+
+	public static int getRaw() {
+		return RAW;
+	}
+
+	public static int getRead() {
+		return READ;
+	}
+
+	public static int getReal() {
+		return REAL;
+	}
+
+	public static int getRecord() {
+		return RECORD;
+	}
+
+	public static int getRef() {
+		return REF;
+	}
+
+	public static int getReference() {
+		return REFERENCE;
+	}
+
+	public static int getReferencing() {
+		return REFERENCING;
+	}
+
+	public static int getReject() {
+		return REJECT;
+	}
+
+	public static int getReliesOn() {
+		return RELIES_ON;
+	}
+
+	public static int getRename() {
+		return RENAME;
+	}
+
+	public static int getReplace() {
+		return REPLACE;
+	}
+
+	public static int getRespect() {
+		return RESPECT;
+	}
+
+	public static int getRestrictReferences() {
+		return RESTRICT_REFERENCES;
+	}
+
+	public static int getResult() {
+		return RESULT;
+	}
+
+	public static int getResultCache() {
+		return RESULT_CACHE;
+	}
+
+	public static int getReturn() {
+		return RETURN;
+	}
+
+	public static int getReturning() {
+		return RETURNING;
+	}
+
+	public static int getReuse() {
+		return REUSE;
+	}
+
+	public static int getReverse() {
+		return REVERSE;
+	}
+
+	public static int getRevoke() {
+		return REVOKE;
+	}
+
+	public static int getRight() {
+		return RIGHT;
+	}
+
+	public static int getRollback() {
+		return ROLLBACK;
+	}
+
+	public static int getRollup() {
+		return ROLLUP;
+	}
+
+	public static int getRow() {
+		return ROW;
+	}
+
+	public static int getRowid() {
+		return ROWID;
+	}
+
+	public static int getRows() {
+		return ROWS;
+	}
+
+	public static int getRules() {
+		return RULES;
+	}
+
+	public static int getSample() {
+		return SAMPLE;
+	}
+
+	public static int getSave() {
+		return SAVE;
+	}
+
+	public static int getSavepoint() {
+		return SAVEPOINT;
+	}
+
+	public static int getSchema() {
+		return SCHEMA;
+	}
+
+	public static int getSchemacheck() {
+		return SCHEMACHECK;
+	}
+
+	public static int getScn() {
+		return SCN;
+	}
+
+	public static int getSearch() {
+		return SEARCH;
+	}
+
+	public static int getSecond() {
+		return SECOND;
+	}
+
+	public static int getSeed() {
+		return SEED;
+	}
+
+	public static int getSegment() {
+		return SEGMENT;
+	}
+
+	public static int getSelect() {
+		return SELECT;
+	}
+
+	public static int getSelf() {
+		return SELF;
+	}
+
+	public static int getSequence() {
+		return SEQUENCE;
+	}
+
+	public static int getSequential() {
+		return SEQUENTIAL;
+	}
+
+	public static int getSerializable() {
+		return SERIALIZABLE;
+	}
+
+	public static int getSeriallyReusable() {
+		return SERIALLY_REUSABLE;
+	}
+
+	public static int getServererror() {
+		return SERVERERROR;
+	}
+
+	public static int getSessiontimezone() {
+		return SESSIONTIMEZONE;
+	}
+
+	public static int getSet() {
+		return SET;
+	}
+
+	public static int getSets() {
+		return SETS;
+	}
+
+	public static int getSettings() {
+		return SETTINGS;
+	}
+
+	public static int getShare() {
+		return SHARE;
+	}
+
+	public static int getShow() {
+		return SHOW;
+	}
+
+	public static int getShutdown() {
+		return SHUTDOWN;
+	}
+
+	public static int getSiblings() {
+		return SIBLINGS;
+	}
+
+	public static int getSigntype() {
+		return SIGNTYPE;
+	}
+
+	public static int getSimpleInteger() {
+		return SIMPLE_INTEGER;
+	}
+
+	public static int getSingle() {
+		return SINGLE;
+	}
+
+	public static int getSize() {
+		return SIZE;
+	}
+
+	public static int getSkip() {
+		return SKIP_;
+	}
+
+	public static int getSmallint() {
+		return SMALLINT;
+	}
+
+	public static int getSnapshot() {
+		return SNAPSHOT;
+	}
+
+	public static int getSome() {
+		return SOME;
+	}
+
+	public static int getSpecification() {
+		return SPECIFICATION;
+	}
+
+	public static int getSqldata() {
+		return SQLDATA;
+	}
+
+	public static int getSqlerror() {
+		return SQLERROR;
+	}
+
+	public static int getSqlPercentRowcount() {
+		return SQL_PERCENT_ROWCOUNT;
+	}
+
+	public static int getStandalone() {
+		return STANDALONE;
+	}
+
+	public static int getStart() {
+		return START;
+	}
+
+	public static int getStartup() {
+		return STARTUP;
+	}
+
+	public static int getStatement() {
+		return STATEMENT;
+	}
+
+	public static int getStatementId() {
+		return STATEMENT_ID;
+	}
+
+	public static int getStatic() {
+		return STATIC;
+	}
+
+	public static int getStatistics() {
+		return STATISTICS;
+	}
+
+	public static int getString() {
+		return STRING;
+	}
+
+	public static int getSubmultiset() {
+		return SUBMULTISET;
+	}
+
+	public static int getSubpartition() {
+		return SUBPARTITION;
+	}
+
+	public static int getSubstitutable() {
+		return SUBSTITUTABLE;
+	}
+
+	public static int getSubtype() {
+		return SUBTYPE;
+	}
+
+	public static int getSuccess() {
+		return SUCCESS;
+	}
+
+	public static int getSuspend() {
+		return SUSPEND;
+	}
+
+	public static int getTable() {
+		return TABLE;
+	}
+
+	public static int getThe() {
+		return THE;
+	}
+
+	public static int getThen() {
+		return THEN;
+	}
+
+	public static int getTime() {
+		return TIME;
+	}
+
+	public static int getTimestamp() {
+		return TIMESTAMP;
+	}
+
+	public static int getTimestampLtzUnconstrained() {
+		return TIMESTAMP_LTZ_UNCONSTRAINED;
+	}
+
+	public static int getTimestampTzUnconstrained() {
+		return TIMESTAMP_TZ_UNCONSTRAINED;
+	}
+
+	public static int getTimestampUnconstrained() {
+		return TIMESTAMP_UNCONSTRAINED;
+	}
+
+	public static int getTimezoneAbbr() {
+		return TIMEZONE_ABBR;
+	}
+
+	public static int getTimezoneHour() {
+		return TIMEZONE_HOUR;
+	}
+
+	public static int getTimezoneMinute() {
+		return TIMEZONE_MINUTE;
+	}
+
+	public static int getTimezoneRegion() {
+		return TIMEZONE_REGION;
+	}
+
+	public static int getTo() {
+		return TO;
+	}
+
+	public static int getToChar() {
+		return TO_CHAR;
+	}
+
+	public static int getToNumber() {
+		return TO_NUMBER;
+	}
+
+	public static int getTrailing() {
+		return TRAILING;
+	}
+
+	public static int getTransaction() {
+		return TRANSACTION;
+	}
+
+	public static int getTranslate() {
+		return TRANSLATE;
+	}
+
+	public static int getTreat() {
+		return TREAT;
+	}
+
+	public static int getTrigger() {
+		return TRIGGER;
+	}
+
+	public static int getTrim() {
+		return TRIM;
+	}
+
+	public static int getTrue() {
+		return TRUE;
+	}
+
+	public static int getTruncate() {
+		return TRUNCATE;
+	}
+
+	public int getUrowId() {
+		return UROWID;
+	}
+
+
+	public static int getUnbounded() {
+		return UNBOUNDED;
+	}
+
+	public static int getUnder() {
+		return UNDER;
+	}
+
+	public static int getUnion() {
+		return UNION;
+	}
+
+	public static int getUnique() {
+		return UNIQUE;
+	}
+
+	public static int getUnlimited() {
+		return UNLIMITED;
+	}
+
+	public static int getUnpivot() {
+		return UNPIVOT;
+	}
+
+	public static int getUntil() {
+		return UNTIL;
+	}
+
+	public static int getUpdate() {
+		return UPDATE;
+	}
+
+	public static int getUpdated() {
+		return UPDATED;
+	}
+
+	public static int getUpsert() {
+		return UPSERT;
+	}
+
+	public static int getUrowid() {
+		return UROWID;
+	}
+
+	public static int getUse() {
+		return USE;
+	}
+
+	public static int getUsing() {
+		return USING;
+	}
+
+	public static int getValidate() {
+		return VALIDATE;
+	}
+
+	public static int getValue() {
+		return VALUE;
+	}
+
+	public static int getValues() {
+		return VALUES;
+	}
+
+	public static int getVarchar() {
+		return VARCHAR;
+	}
+
+	public static int getVarchar2() {
+		return VARCHAR2;
+	}
+
+	public static int getVariable() {
+		return VARIABLE;
+	}
+
+	public static int getVarray() {
+		return VARRAY;
+	}
+
+	public static int getVarying() {
+		return VARYING;
+	}
+
+	public static int getVersion() {
+		return VERSION;
+	}
+
+	public static int getVersions() {
+		return VERSIONS;
+	}
+
+	public static int getWait() {
+		return WAIT;
+	}
+
+	public static int getWarning() {
+		return WARNING;
+	}
+
+	public static int getWellformed() {
+		return WELLFORMED;
+	}
+
+	public static int getWhen() {
+		return WHEN;
+	}
+
+	public static int getWhenever() {
+		return WHENEVER;
+	}
+
+	public static int getWhere() {
+		return WHERE;
+	}
+
+	public static int getWhile() {
+		return WHILE;
+	}
+
+	public static int getWith() {
+		return WITH;
+	}
+
+	public static int getWithin() {
+		return WITHIN;
+	}
+
+	public static int getWork() {
+		return WORK;
+	}
+
+	public static int getWrite() {
+		return WRITE;
+	}
+
+	public static int getXml() {
+		return XML;
+	}
+
+	public static int getXmlagg() {
+		return XMLAGG;
+	}
+
+	public static int getXmlattributes() {
+		return XMLATTRIBUTES;
+	}
+
+	public static int getXmlcast() {
+		return XMLCAST;
+	}
+
+	public static int getXmlcolattval() {
+		return XMLCOLATTVAL;
+	}
+
+	public static int getXmlelement() {
+		return XMLELEMENT;
+	}
+
+	public static int getXmlexists() {
+		return XMLEXISTS;
+	}
+
+	public static int getXmlforest() {
+		return XMLFOREST;
+	}
+
+	public static int getXmlnamespaces() {
+		return XMLNAMESPACES;
+	}
+
+	public static int getXmlparse() {
+		return XMLPARSE;
+	}
+
+	public static int getXmlpi() {
+		return XMLPI;
+	}
+
+	public static int getXmlquery() {
+		return XMLQUERY;
+	}
+
+	public static int getXmlroot() {
+		return XMLROOT;
+	}
+
+	public static int getXmlserialize() {
+		return XMLSERIALIZE;
+	}
+
+	public static int getXmltable() {
+		return XMLTABLE;
+	}
+
+	public static int getYear() {
+		return YEAR;
+	}
+
+	public static int getYes() {
+		return YES;
+	}
+
+	public static int getYmintervalUnconstrained() {
+		return YMINTERVAL_UNCONSTRAINED;
+	}
+
+	public static int getZone() {
+		return ZONE;
+	}
+
+	public static int getPrediction() {
+		return PREDICTION;
+	}
+
+	public static int getPredictionBounds() {
+		return PREDICTION_BOUNDS;
+	}
+
+	public static int getPredictionCost() {
+		return PREDICTION_COST;
+	}
+
+	public static int getPredictionDetails() {
+		return PREDICTION_DETAILS;
+	}
+
+	public static int getPredictionProbability() {
+		return PREDICTION_PROBABILITY;
+	}
+
+	public static int getPredictionSet() {
+		return PREDICTION_SET;
+	}
+
+	public static int getCumeDist() {
+		return CUME_DIST;
+	}
+
+	public static int getDenseRank() {
+		return DENSE_RANK;
+	}
+
+	public static int getListagg() {
+		return LISTAGG;
+	}
+
+	public static int getPercentRank() {
+		return PERCENT_RANK;
+	}
+
+	public static int getPercentileCont() {
+		return PERCENTILE_CONT;
+	}
+
+	public static int getPercentileDisc() {
+		return PERCENTILE_DISC;
+	}
+
+	public static int getRank() {
+		return RANK;
+	}
+
+	public static int getAvg() {
+		return AVG;
+	}
+
+	public static int getCorr() {
+		return CORR;
+	}
+
+	public static int getLag() {
+		return LAG;
+	}
+
+	public static int getLead() {
+		return LEAD;
+	}
+
+	public static int getMax() {
+		return MAX;
+	}
+
+	public static int getMedian() {
+		return MEDIAN;
+	}
+
+	public static int getMin() {
+		return MIN;
+	}
+
+	public static int getNtile() {
+		return NTILE;
+	}
+
+	public static int getRatioToReport() {
+		return RATIO_TO_REPORT;
+	}
+
+	public static int getRowNumber() {
+		return ROW_NUMBER;
+	}
+
+	public static int getSum() {
+		return SUM;
+	}
+
+	public static int getVariance() {
+		return VARIANCE;
+	}
+
+	public static int getRegr() {
+		return REGR_;
+	}
+
+	public static int getStddev() {
+		return STDDEV;
+	}
+
+	public static int getVar() {
+		return VAR_;
+	}
+
+	public static int getCovar() {
+		return COVAR_;
+	}
+
+	public static int getPrompt() {
+		return PROMPT;
+	}
+
+	public static int getNationalCharStringLit() {
+		return NATIONAL_CHAR_STRING_LIT;
+	}
+
+	public static int getBitStringLit() {
+		return BIT_STRING_LIT;
+	}
+
+	public static int getHexStringLit() {
+		return HEX_STRING_LIT;
+	}
+
+	public static int getDoublePeriod() {
+		return DOUBLE_PERIOD;
+	}
+
+	public static int getPeriod() {
+		return PERIOD;
+	}
+
+	public static int getUnsignedInteger() {
+		return UNSIGNED_INTEGER;
+	}
+
+	public static int getApproximateNumLit() {
+		return APPROXIMATE_NUM_LIT;
+	}
+
+	public static int getCharString() {
+		return CHAR_STRING;
+	}
+
+	public static int getDelimitedId() {
+		return DELIMITED_ID;
+	}
+
+	public static int getPercent() {
+		return PERCENT;
+	}
+
+	public static int getAmpersand() {
+		return AMPERSAND;
+	}
+
+	public static int getLeftParen() {
+		return LEFT_PAREN;
+	}
+
+	public static int getRightParen() {
+		return RIGHT_PAREN;
+	}
+
+	public static int getDoubleAsterisk() {
+		return DOUBLE_ASTERISK;
+	}
+
+	public static int getAsterisk() {
+		return ASTERISK;
+	}
+
+	public static int getPlusSign() {
+		return PLUS_SIGN;
+	}
+
+	public static int getMinusSign() {
+		return MINUS_SIGN;
+	}
+
+	public static int getComma() {
+		return COMMA;
+	}
+
+	public static int getSolidus() {
+		return SOLIDUS;
+	}
+
+	public static int getAtSign() {
+		return AT_SIGN;
+	}
+
+	public static int getAssignOp() {
+		return ASSIGN_OP;
+	}
+
+	public static int getBindvar() {
+		return BINDVAR;
+	}
+
+	public static int getColon() {
+		return COLON;
+	}
+
+	public static int getSemicolon() {
+		return SEMICOLON;
+	}
+
+	public static int getLessThanOrEqualsOp() {
+		return LESS_THAN_OR_EQUALS_OP;
+	}
+
+	public static int getLessThanOp() {
+		return LESS_THAN_OP;
+	}
+
+	public static int getGreaterThanOrEqualsOp() {
+		return GREATER_THAN_OR_EQUALS_OP;
+	}
+
+	public static int getNotEqualOp() {
+		return NOT_EQUAL_OP;
+	}
+
+	public static int getCarretOperatorPart() {
+		return CARRET_OPERATOR_PART;
+	}
+
+	public static int getTildeOperatorPart() {
+		return TILDE_OPERATOR_PART;
+	}
+
+	public static int getExclamationOperatorPart() {
+		return EXCLAMATION_OPERATOR_PART;
+	}
+
+	public static int getGreaterThanOp() {
+		return GREATER_THAN_OP;
+	}
+
+	public static int getConcatenationOp() {
+		return CONCATENATION_OP;
+	}
+
+	public static int getVerticalBar() {
+		return VERTICAL_BAR;
+	}
+
+	public static int getEqualsOp() {
+		return EQUALS_OP;
+	}
+
+	public static int getLeftBracket() {
+		return LEFT_BRACKET;
+	}
+
+	public static int getRightBracket() {
+		return RIGHT_BRACKET;
+	}
+
+	public static int getIntroducer() {
+		return INTRODUCER;
+	}
+
+	public static int getSpaces() {
+		return SPACES;
+	}
+
+	public static int getSingleLineComment() {
+		return SINGLE_LINE_COMMENT;
+	}
+
+	public static int getMultiLineComment() {
+		return MULTI_LINE_COMMENT;
+	}
+
+	public static int getSql92ReservedAll() {
+		return SQL92_RESERVED_ALL;
+	}
+
+	public static int getSql92ReservedAlter() {
+		return SQL92_RESERVED_ALTER;
+	}
+
+	public static int getSql92ReservedAnd() {
+		return SQL92_RESERVED_AND;
+	}
+
+	public static int getSql92ReservedAny() {
+		return SQL92_RESERVED_ANY;
+	}
+
+	public static int getSql92ReservedAs() {
+		return SQL92_RESERVED_AS;
+	}
+
+	public static int getSql92ReservedAsc() {
+		return SQL92_RESERVED_ASC;
+	}
+
+	public static int getSql92ReservedBegin() {
+		return SQL92_RESERVED_BEGIN;
+	}
+
+	public static int getSql92ReservedBetween() {
+		return SQL92_RESERVED_BETWEEN;
+	}
+
+	public static int getSql92ReservedBy() {
+		return SQL92_RESERVED_BY;
+	}
+
+	public static int getSql92ReservedCase() {
+		return SQL92_RESERVED_CASE;
+	}
+
+	public static int getSql92ReservedCheck() {
+		return SQL92_RESERVED_CHECK;
+	}
+
+	public static int getPlsqlReservedClusters() {
+		return PLSQL_RESERVED_CLUSTERS;
+	}
+
+	public static int getPlsqlReservedColauth() {
+		return PLSQL_RESERVED_COLAUTH;
+	}
+
+	public static int getPlsqlReservedCompress() {
+		return PLSQL_RESERVED_COMPRESS;
+	}
+
+	public static int getSql92ReservedConnect() {
+		return SQL92_RESERVED_CONNECT;
+	}
+
+	public static int getPlsqlNonReservedConnectByRoot() {
+		return PLSQL_NON_RESERVED_CONNECT_BY_ROOT;
+	}
+
+	public static int getPlsqlReservedCrash() {
+		return PLSQL_RESERVED_CRASH;
+	}
+
+	public static int getSql92ReservedCreate() {
+		return SQL92_RESERVED_CREATE;
+	}
+
+	public static int getSql92ReservedCurrent() {
+		return SQL92_RESERVED_CURRENT;
+	}
+
+	public static int getSql92ReservedCursor() {
+		return SQL92_RESERVED_CURSOR;
+	}
+
+	public static int getSql92ReservedDate() {
+		return SQL92_RESERVED_DATE;
+	}
+
+	public static int getSql92ReservedDeclare() {
+		return SQL92_RESERVED_DECLARE;
+	}
+
+	public static int getSql92ReservedDefault() {
+		return SQL92_RESERVED_DEFAULT;
+	}
+
+	public static int getSql92ReservedDelete() {
+		return SQL92_RESERVED_DELETE;
+	}
+
+	public static int getSql92ReservedDesc() {
+		return SQL92_RESERVED_DESC;
+	}
+
+	public static int getSql92ReservedDistinct() {
+		return SQL92_RESERVED_DISTINCT;
+	}
+
+	public static int getSql92ReservedDrop() {
+		return SQL92_RESERVED_DROP;
+	}
+
+	public static int getSql92ReservedElse() {
+		return SQL92_RESERVED_ELSE;
+	}
+
+	public static int getSql92ReservedEnd() {
+		return SQL92_RESERVED_END;
+	}
+
+	public static int getSql92ReservedException() {
+		return SQL92_RESERVED_EXCEPTION;
+	}
+
+	public static int getPlsqlReservedExclusive() {
+		return PLSQL_RESERVED_EXCLUSIVE;
+	}
+
+	public static int getSql92ReservedExists() {
+		return SQL92_RESERVED_EXISTS;
+	}
+
+	public static int getSql92ReservedFalse() {
+		return SQL92_RESERVED_FALSE;
+	}
+
+	public static int getSql92ReservedFetch() {
+		return SQL92_RESERVED_FETCH;
+	}
+
+	public static int getSql92ReservedFor() {
+		return SQL92_RESERVED_FOR;
+	}
+
+	public static int getSql92ReservedFrom() {
+		return SQL92_RESERVED_FROM;
+	}
+
+	public static int getSql92ReservedGoto() {
+		return SQL92_RESERVED_GOTO;
+	}
+
+	public static int getSql92ReservedGrant() {
+		return SQL92_RESERVED_GRANT;
+	}
+
+	public static int getSql92ReservedGroup() {
+		return SQL92_RESERVED_GROUP;
+	}
+
+	public static int getSql92ReservedHaving() {
+		return SQL92_RESERVED_HAVING;
+	}
+
+	public static int getPlsqlReservedIdentified() {
+		return PLSQL_RESERVED_IDENTIFIED;
+	}
+
+	public static int getPlsqlReservedIf() {
+		return PLSQL_RESERVED_IF;
+	}
+
+	public static int getSql92ReservedIn() {
+		return SQL92_RESERVED_IN;
+	}
+
+	public static int getPlsqlReservedIndex() {
+		return PLSQL_RESERVED_INDEX;
+	}
+
+	public static int getPlsqlReservedIndexes() {
+		return PLSQL_RESERVED_INDEXES;
+	}
+
+	public static int getSql92ReservedInsert() {
+		return SQL92_RESERVED_INSERT;
+	}
+
+	public static int getSql92ReservedIntersect() {
+		return SQL92_RESERVED_INTERSECT;
+	}
+
+	public static int getSql92ReservedInto() {
+		return SQL92_RESERVED_INTO;
+	}
+
+	public static int getSql92ReservedIs() {
+		return SQL92_RESERVED_IS;
+	}
+
+	public static int getSql92ReservedLike() {
+		return SQL92_RESERVED_LIKE;
+	}
+
+	public static int getPlsqlReservedLock() {
+		return PLSQL_RESERVED_LOCK;
+	}
+
+	public static int getPlsqlReservedMinus() {
+		return PLSQL_RESERVED_MINUS;
+	}
+
+	public static int getPlsqlReservedMode() {
+		return PLSQL_RESERVED_MODE;
+	}
+
+	public static int getPlsqlReservedNocompress() {
+		return PLSQL_RESERVED_NOCOMPRESS;
+	}
+
+	public static int getSql92ReservedNot() {
+		return SQL92_RESERVED_NOT;
+	}
+
+	public static int getPlsqlReservedNowait() {
+		return PLSQL_RESERVED_NOWAIT;
+	}
+
+	public static int getSql92ReservedNull() {
+		return SQL92_RESERVED_NULL;
+	}
+
+	public static int getSql92ReservedOf() {
+		return SQL92_RESERVED_OF;
+	}
+
+	public static int getSql92ReservedOn() {
+		return SQL92_RESERVED_ON;
+	}
+
+	public static int getSql92ReservedOption() {
+		return SQL92_RESERVED_OPTION;
+	}
+
+	public static int getSql92ReservedOr() {
+		return SQL92_RESERVED_OR;
+	}
+
+	public static int getSql92ReservedOrder() {
+		return SQL92_RESERVED_ORDER;
+	}
+
+	public static int getSql92ReservedOverlaps() {
+		return SQL92_RESERVED_OVERLAPS;
+	}
+
+	public static int getSql92ReservedPrior() {
+		return SQL92_RESERVED_PRIOR;
+	}
+
+	public static int getSql92ReservedProcedure() {
+		return SQL92_RESERVED_PROCEDURE;
+	}
+
+	public static int getSql92ReservedPublic() {
+		return SQL92_RESERVED_PUBLIC;
+	}
+
+	public static int getPlsqlReservedResource() {
+		return PLSQL_RESERVED_RESOURCE;
+	}
+
+	public static int getSql92ReservedRevoke() {
+		return SQL92_RESERVED_REVOKE;
+	}
+
+	public static int getSql92ReservedSelect() {
+		return SQL92_RESERVED_SELECT;
+	}
+
+	public static int getPlsqlReservedShare() {
+		return PLSQL_RESERVED_SHARE;
+	}
+
+	public static int getSql92ReservedSize() {
+		return SQL92_RESERVED_SIZE;
+	}
+
+	public static int getPlsqlReservedStart() {
+		return PLSQL_RESERVED_START;
+	}
+
+	public static int getPlsqlReservedTabauth() {
+		return PLSQL_RESERVED_TABAUTH;
+	}
+
+	public static int getSql92ReservedTable() {
+		return SQL92_RESERVED_TABLE;
+	}
+
+	public static int getSql92ReservedThe() {
+		return SQL92_RESERVED_THE;
+	}
+
+	public static int getSql92ReservedThen() {
+		return SQL92_RESERVED_THEN;
+	}
+
+	public static int getSql92ReservedTo() {
+		return SQL92_RESERVED_TO;
+	}
+
+	public static int getSql92ReservedTrue() {
+		return SQL92_RESERVED_TRUE;
+	}
+
+	public static int getSql92ReservedUnion() {
+		return SQL92_RESERVED_UNION;
+	}
+
+	public static int getSql92ReservedUnique() {
+		return SQL92_RESERVED_UNIQUE;
+	}
+
+	public static int getSql92ReservedUpdate() {
+		return SQL92_RESERVED_UPDATE;
+	}
+
+	public static int getSql92ReservedValues() {
+		return SQL92_RESERVED_VALUES;
+	}
+
+	public static int getSql92ReservedView() {
+		return SQL92_RESERVED_VIEW;
+	}
+
+	public static int getPlsqlReservedViews() {
+		return PLSQL_RESERVED_VIEWS;
+	}
+
+	public static int getSql92ReservedWhen() {
+		return SQL92_RESERVED_WHEN;
+	}
+
+	public static int getSql92ReservedWhere() {
+		return SQL92_RESERVED_WHERE;
+	}
+
+	public static int getSql92ReservedWith() {
+		return SQL92_RESERVED_WITH;
+	}
+
+	public static int getPlsqlNonReservedUsing() {
+		return PLSQL_NON_RESERVED_USING;
+	}
+
+	public static int getPlsqlNonReservedModel() {
+		return PLSQL_NON_RESERVED_MODEL;
+	}
+
+	public static int getPlsqlNonReservedElsif() {
+		return PLSQL_NON_RESERVED_ELSIF;
+	}
+
+	public static int getPlsqlNonReservedPivot() {
+		return PLSQL_NON_RESERVED_PIVOT;
+	}
+
+	public static int getPlsqlNonReservedUnpivot() {
+		return PLSQL_NON_RESERVED_UNPIVOT;
+	}
+
+	public static int getRegularId() {
+		return REGULAR_ID;
+	}
+
+	public static int getZv() {
+		return ZV;
+	}
+
+	public static void setModeNames(String[] modeNames) {
+		PlSqlLexer.modeNames = modeNames;
+	}
+
+	public static String[] getRulenames() {
+		return ruleNames;
+	}
+
+	public static String[] getLiteralNames() {
+		return _LITERAL_NAMES;
+	}
+
+	public static String[] getSymbolicNames() {
+		return _SYMBOLIC_NAMES;
+	}
+
+	public static String[] getTokennames() {
+		return tokenNames;
+	}
+
+	public static int getSerializedatnsegments() {
+		return _serializedATNSegments;
+	}
+
+	public static String getSerializedatnsegment0() {
+		return _serializedATNSegment0;
+	}
+
+	public static String getSerializedatnsegment1() {
+		return _serializedATNSegment1;
+	}
+
+	public static String getSerializedatnsegment2() {
+		return _serializedATNSegment2;
+	}
+
+	public static String getSerializedatn() {
+		return _serializedATN;
+	}
+
+	public static ATN getAtn() {
+		return _ATN;
+	}
 	static { RuntimeMetaData.checkVersion("4.5.3", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -3342,5 +5923,9 @@ public class PlSqlLexer extends Lexer {
 		for (int i = 0; i < _ATN.getNumberOfDecisions(); i++) {
 			_decisionToDFA[i] = new DFA(_ATN.getDecisionState(i), i);
 		}
+	}
+
+	public int getType() {
+		return TYPE;
 	}
 }

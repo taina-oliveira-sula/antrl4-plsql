@@ -8,7 +8,7 @@ import it.luke.plsql.pojo.TableInfo;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 
-public class PlSqlGraphVisitor extends PlSqlBaseVisitor {
+public class PlSqlGraphVisitor extends PlSqlBaseVisitor<Object> {
     public String result_tableName = "";
     public TableInfo mainTable = null;
     public PlSqlParserTree tree = null;
